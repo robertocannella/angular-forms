@@ -13,6 +13,8 @@ export class AppComponent {
   @ViewChild('email') emailFormControl: any;
   subscription: Subscription;
   answer: string;
+  genders = ['male', 'female', 'other'];
+  
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
