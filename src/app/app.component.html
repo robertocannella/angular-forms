@@ -2,8 +2,11 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
-          <div class="form-group">
+        <div
+           id="user-data"
+          ngModelGroup="userData"
+          #userdata="ngModelGroup">
+          <div class="form-group" >
             <label for="username">Username</label>
             <input 
             type="text" 
@@ -14,7 +17,7 @@
             required
             #username="ngModel"
             >
-          <span *ngIf="!username.valid && username.touched" class="help-block">Please enter a valid email.</span>
+          <span *ngIf="!username.valid && username.touched" class="help-block">Please enter a valid username.</span>
 
           </div>
           <button class="btn btn-default" type="button">Suggest an Username</button>
@@ -60,6 +63,8 @@
         type="submit"
         [disabled]="!f.valid">Submit</button>
       </form>
+      <span *ngIf="!userdata.valid && userdata.touched" class="help-block">User Data is not valid</span>
+
     </div>
   </div>
 </div>
