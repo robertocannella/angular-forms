@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { Form, NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +9,20 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('f') signupForm: NgForm;
+  subscription: Subscription;
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
-  onSubmit(form: NgForm){
-    console.log(form.value)
+  // onSubmit(form: NgForm){
+  //   this.subscription = form.valueChanges.pipe(map((data:{username:string,email:string,secret:string})=>{
+  //     return data.username.toUpperCase();
+  //   })).subscribe((data)=>{
+  //     console.log(data);
+  //   });
+  // }
+  onSubmit(){
+    console.log(this.signupForm);
   }
+
 }
