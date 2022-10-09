@@ -10,10 +10,13 @@ import {map} from 'rxjs/operators';
 })
 export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
+  @ViewChild('email') emailFormControl: any;
   subscription: Subscription;
+  answer: string;
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
+ 
   // onSubmit(form: NgForm){
   //   this.subscription = form.valueChanges.pipe(map((data:{username:string,email:string,secret:string})=>{
   //     return data.username.toUpperCase();
